@@ -4,6 +4,7 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
 
 Try running some of the following tasks:
 npm install @nomicfoundation/hardhat-toolbox --save--dev
+npx hardhat run scripts/deploy.js --network development
 ```shell
 npx hardhat help
 npx hardhat test
