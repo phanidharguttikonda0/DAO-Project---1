@@ -6,8 +6,6 @@ import "contracts/Company.sol" ;
 
 contract ManagingCompanies {
 
-    receive() external payable { }
-
     mapping (address => address) private EachMemberContractAddress ;
 
 
@@ -18,8 +16,6 @@ contract ManagingCompanies {
 
     function setCompany(address[] memory boardMembers,address CEO, uint _acceptance) external payable MinBalance() {
         address contractAddress = address (new Company{value: (msg.value - 1 ether)}(boardMembers, CEO, _acceptance)) ;
-        console.log("The contract Address was : ") ;
-        console.log(contractAddress) ;
        // (bool success) = payable(contractAddress).send((msg.value - 1 ether)) ;
         EachMemberContractAddress[CEO] = contractAddress ;
         for(uint i = 0 ; i < boardMembers.length ; i++){

@@ -16,8 +16,8 @@ contract Company{
 
 
     Fund[] private failedFunds ;
-    Fund[] public sucessfulFunds ;
-    Fund[] public  pendingFunds ;
+    Fund[] private sucessfulFunds ;
+    Fund[] private  pendingFunds ;
 
     function getlength() external view returns(uint) {
         return pendingFunds.length ;
@@ -25,17 +25,17 @@ contract Company{
 
 
     // as CEO can be taken from the board or from externally 
-    mapping(address => mapping(address => bool)) public  changeceo ;
-    mapping(address => uint) public  yesvotestoChangeCEO ; 
+    mapping(address => mapping(address => bool)) private  changeceo ;
+    mapping(address => uint) private  yesvotestoChangeCEO ; 
     uint private totalVotesToChangeCEO ;
 
-    mapping(uint => mapping(address => bool)) public  votedMembers ;
-    mapping(uint => uint) public  yesVotes ; // votes with positive response
+    mapping(uint => mapping(address => bool)) private  votedMembers ;
+    mapping(uint => uint) private  yesVotes ; // votes with positive response
 
     // board memebers list and the CEO
-    address[] boardmembers ;
-    address CEO ;
-    uint immutable acceptance ; // in percentage
+    address[] private boardmembers ;
+    address private CEO ;
+    uint immutable private acceptance ; // in percentage
     address private nextCEO ;
 
     constructor(address[] memory _boardmembers, address _CEO, uint _acceptance) payable {
@@ -91,7 +91,7 @@ contract Company{
         emit FundRaised(reason, amount, f.timestamp);
         return pendingFunds.length ;
     }
-
+    // another function to be implemented  getting number of votes 
     function voteRaiseFund(uint timestamp, uint index, bool vote) external {
         // CEO can't call 
         isMember(msg.sender) ;
@@ -142,6 +142,10 @@ contract Company{
         payable (to).transfer(sucessfulFunds[index].amount) ;
         sucessfulFunds[index].isused = true ; // funds are successfully transfered 
         emit FundsTransfered(sucessfulFunds[index].amount, sucessfulFunds[index].timestamp, to);
+    }
+
+    function getCEO() public view returns(address) {
+        return CEO ;
     }
 
 
