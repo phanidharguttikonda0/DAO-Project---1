@@ -1,0 +1,28 @@
+.wallet-connect{
+    padding: 8px 15px;
+    color: white;
+    background-color: rgb(225, 62, 62);
+    cursor: pointer;
+    border-radius: 12px;
+    border-color: gray;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.wallet-connect-1 {
+    padding: 8px 15px;
+    color: white;
+    background-color: rgb(60, 233, 109);
+    pointer-events: none;
+    border-radius: 12px;
+    border-color: gray;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 12px;
+}

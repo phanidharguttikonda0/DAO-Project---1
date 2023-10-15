@@ -1,0 +1,10 @@
+.left-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Adjust this property as per your alignment requirement */
+  }
+  
+  .element {
+    margin: 3px; /* Adjust this value based on your spacing requirement */
+  }
+  
