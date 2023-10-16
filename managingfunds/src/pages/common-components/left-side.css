@@ -6,5 +6,6 @@
   
   .element {
     margin: 3px; /* Adjust this value based on your spacing requirement */
+    font-family: 'Courier New', Courier, monospace;
   }
   

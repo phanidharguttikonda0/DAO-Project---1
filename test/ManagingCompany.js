@@ -3,7 +3,7 @@
 const Web3 = require("web3") ;
 
 const ManagingCompany =  require("C:/Users/phani/One-Drive/BlockChainDeveloper/hardhat/ManagingCompanyFunds/artifacts/contracts/ManagingCompanyFunds.sol/ManagingCompanies.json") ;
-const Company = require("../artifacts/contracts/Company.sol/Company.json") ;
+// const Company = require("../artifacts/contracts/Company.sol/Company.json") ;
 
 // describe("Testing the Projects", function(){
 //   let ManagingCompanyAddress = "0x38969408962346C9a18d8aF17097b16D51C0321f" ;
@@ -45,54 +45,64 @@ const Company = require("../artifacts/contracts/Company.sol/Company.json") ;
 //   }) ;
 // }) // 0xd488e5811802AFe9B90D6BD1BF420F94bF2FF1d6
 
-describe("testing the  Company Function", function(){
-  const CompanyContractAddress = "0xd488e5811802AFe9B90D6BD1BF420F94bF2FF1d6" ;
-  const web3 = new Web3.Web3("http://127.0.0.1:7545") ;
-  const contract = new web3.eth.Contract(Company.abi, CompanyContractAddress) ;
-  const acc = web3.eth.getAccounts() ;
-  let accounts = [] ;
-  it("getting the accounts", async function(){
-    accounts = await acc.then(res => res).catch(err => console.log(err)) ;
-  })
-    function createTransaction(from, to, gas, gasPrice, data, value) {
-      return {
-        from: from,
-        to: to,
-        gas: gas,
-        gasPrice:gasPrice,
-        data:data,
-        value:value
-      } ;
-  }
-  it("connecting to the Company Contract and start doing testing", async function(){
-    let boardMembers = await contract.methods.listofBoardMembers().call({from: accounts[3]}) ;
-    console.log(`The board Members are ${boardMembers}`)
-    let CEO = await contract.methods.getCEO().call() ;
-    console.log(`The CEO was ${CEO}`) ;
-    const encodeRaiseFunds = contract.methods.raiseFund("kavya's birthday", web3.utils.toWei('0.1','ether')).encodeABI() ;
-    const transaction = createTransaction(
-      CEO, CompanyContractAddress, '5480905', '2000000000', encodeRaiseFunds, web3.utils.toWei('0', 'ether')
-    ) ; 
-    delete transaction.value ;
-    web3.eth.signTransaction(transaction, "0xeae67082fd4ac840b831443d9bbff929c7b4f2e9793cf6fca3ea209c0a425144").then( signedTransaction => {
-              web3.eth.sendSignedTransaction(signedTransaction.raw)
-            .on('receipt', (receipt) => {
-              console.log('Transaction receipt:', receipt);
-            })
-            .on('error', (error) => {
-              console.error('Transaction error:', error);
-            });
-          }) ;
-    const pendingFunctions = await contract.methods.getPendingRaiseFunds().call({from: CEO}) ;
-    console.log(`The Pending Funds are ${pendingFunctions[0]}`) ;
-    console.log(`Total board members are ${boardMembers.length}`) ; // seven Members has to vote for a successful vote
-    // await contract.methods.voteRaiseFund(pendingFunctions[0].timestamp,0,true).send({
-    //   from: accounts[9], // change here statically, only vote one time[ run from 3rd account to 13th account]
-    //   gas: '5480905',
-    //   gasPrice: '2000000000',
-    //   to: CompanyContractAddress
-    // }) ;
-    const successfulFunds = await contract.methods.getSuccesfullFunds().call({from: CEO}) ;
-    console.log(`The Pending Funds are ${successfulFunds[0].votedMembers}`) ; // this was successfully achieved
-  })
-})
+// describe("testing the  Company Function", function(){
+//   const CompanyContractAddress = "0xd488e5811802AFe9B90D6BD1BF420F94bF2FF1d6" ;
+//   const web3 = new Web3.Web3("http://127.0.0.1:7545") ;
+//   const contract = new web3.eth.Contract(Company.abi, CompanyContractAddress) ;
+//   const acc = web3.eth.getAccounts() ;
+//   let accounts = [] ;
+//   it("getting the accounts", async function(){
+//     accounts = await acc.then(res => res).catch(err => console.log(err)) ;
+//   })
+//     function createTransaction(from, to, gas, gasPrice, data, value) {
+//       return {
+//         from: from,
+//         to: to,
+//         gas: gas,
+//         gasPrice:gasPrice,
+//         data:data,
+//         value:value
+//       } ;
+//   }
+//   it("connecting to the Company Contract and start doing testing", async function(){
+//     let boardMembers = await contract.methods.listofBoardMembers().call({from: accounts[3]}) ;
+//     console.log(`The board Members are ${boardMembers}`)
+//     let CEO = await contract.methods.getCEO().call() ;
+//     console.log(`The CEO was ${CEO}`) ;
+//     const encodeRaiseFunds = contract.methods.raiseFund("kavya's birthday", web3.utils.toWei('0.1','ether')).encodeABI() ;
+//     const transaction = createTransaction(
+//       CEO, CompanyContractAddress, '5480905', '2000000000', encodeRaiseFunds, web3.utils.toWei('0', 'ether')
+//     ) ; 
+//     delete transaction.value ;
+//     web3.eth.signTransaction(transaction, "0xeae67082fd4ac840b831443d9bbff929c7b4f2e9793cf6fca3ea209c0a425144").then( signedTransaction => {
+//               web3.eth.sendSignedTransaction(signedTransaction.raw)
+//             .on('receipt', (receipt) => {
+//               console.log('Transaction receipt:', receipt);
+//             })
+//             .on('error', (error) => {
+//               console.error('Transaction error:', error);
+//             });
+//           }) ;
+//     const pendingFunctions = await contract.methods.getPendingRaiseFunds().call({from: CEO}) ;
+//     console.log(`The Pending Funds are ${pendingFunctions[0]}`) ;
+//     console.log(`Total board members are ${boardMembers.length}`) ; // seven Members has to vote for a successful vote
+//     // await contract.methods.voteRaiseFund(pendingFunctions[0].timestamp,0,true).send({
+//     //   from: accounts[9], // change here statically, only vote one time[ run from 3rd account to 13th account]
+//     //   gas: '5480905',
+//     //   gasPrice: '2000000000',
+//     //   to: CompanyContractAddress
+//     // }) ;
+//     const successfulFunds = await contract.methods.getSuccesfullFunds().call({from: CEO}) ;
+//     console.log(`The Pending Funds are ${successfulFunds[0].votedMembers}`) ; // this was successfully achieved
+//   })
+// })
+
+//const Web3 = require("web3") ;
+
+const web3 = new Web3.Web3("http://127.0.0.1:7545") ;
+const contract = new web3.eth.Contract(ManagingCompany.abi, "0x5e430157967BcD6f16d52FF57a9170e0e94C10EC") ;
+
+async function main(){
+  console.log(await contract.methods.getCompanyAddress("0x6f80B3A0de8FBf33EcdCd98982F88169ae829395").call()) ;
+}
+main() ;

@@ -1,0 +1,14 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #000; /* Adjust border color and size as needed */
+    width: max-content; /* Adjust the width of the form container as needed */
+    margin-top: 50px;
+}
+
+.input {
+    margin: 12px; /* Adjust margin between form elements as needed */
+    display: block;
+    padding: 9px 50px;
+}

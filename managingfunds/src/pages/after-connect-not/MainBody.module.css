@@ -1,0 +1,20 @@
+.listcontainer {
+    border: 1px solid #000;
+    border-radius: 12px;
+    padding: 10px;
+    width: max-content;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+    gap: 25px; /* Adjust the gap between columns and rows as needed */
+    margin: 40px;
+}
+
+.button {
+    margin-top: 50px;
+    cursor: pointer;
+    padding: 8px ;
+    background-color: cornflowerblue;
+    border-radius: 12px;
+    border-color: white;
+    color: white;
+}
