@@ -1,0 +1,10 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 50px;
+    height: max-content;
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 25px;
+}

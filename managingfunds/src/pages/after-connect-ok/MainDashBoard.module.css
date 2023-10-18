@@ -1,0 +1,35 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
+
+.right {
+display: flex;
+justify-content: end;
+border-width: 2px;
+border-color: black;
+border-style: solid;
+border-radius: 12px;
+position: sticky;
+top: 0;
+}
+
+.right nav ul li{
+    display: inline;
+    margin-left: 15px;
+    margin-right: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.link:hover {
+    font-size: large;
+}
+
+
