@@ -1,10 +1,17 @@
 .main{
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: max-content;
     margin: 50px;
     height: max-content;
     border: 2px solid black;
     border-radius: 12px;
     padding: 25px;
+}
+
+.main1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px ;
 }

@@ -1,21 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { addressContext } from '../../App';
-import { CEOContext, CompanyContract, isOKContext } from './MainDashBoard';
+import { CEOContext, isOKContext } from './MainDashBoard';
 import CEO from './RaiseFunds_vote/CEO';
-import NotCEO from './RaiseFunds_vote/NotCEO';
 import css from "./VoteRaiseFunds.module.css";
 
 function RaiseFundorVote(props) {
     const CEOAddress = useContext(CEOContext) ;
-    const contract = useContext(CompanyContract) ;
     const address = useContext(addressContext) ;
     const isok = useContext(isOKContext) ;
-
-
+    const [bool, changebool] = useState(false) ;
+    useEffect(() => {
+        if(isok){
+            changebool(true) ;
+        }
+    }, [isok]) ;
     return (
-        <div className={css.main}>
+        <div className={CEOAddress === address ? css.main1 : css.main}>
             {
-                CEOAddress === address ? <CEO /> : <NotCEO />
+                isok ? CEOAddress === address ? <CEO /> : <h1> 
+                    Only CEO can call the function 
+                    Go-to <Link to="/" className={css.link}>Home</Link>
+                </h1>: <div> Loading </div>
             }
         </div>
     );

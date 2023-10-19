@@ -1,0 +1,40 @@
+.pending{
+    border: 2px solid black;
+    margin: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.data{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.submit{
+    display: flex;
+    flex-direction: column;
+    margin: 12px;
+    padding: 12px;
+}
+
+button {
+    margin: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    color: white;
+    background-color: cornflowerblue;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+button:hover{
+    font-size: medium;
+}
+

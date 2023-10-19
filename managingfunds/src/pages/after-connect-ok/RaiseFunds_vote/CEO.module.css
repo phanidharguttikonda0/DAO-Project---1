@@ -1,0 +1,37 @@
+.ceo {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.ceo input  {
+    margin: 12px;
+}
+
+.ceo input {
+    padding: 12px 25px;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.ceo button {
+    width: max-content;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 12px;
+    border-color: transparent;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    padding: 7px 12px;
+}
+
+.ceo button:hover {
+    font-size: medium;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}

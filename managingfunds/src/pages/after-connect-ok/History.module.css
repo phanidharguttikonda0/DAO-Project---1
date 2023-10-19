@@ -1,0 +1,15 @@
+.history{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px;
+    border: 2px solid black;
+    border-radius: 12px;
+}
+
+.successfull , .failed{
+    margin: 12px;
+    padding: 12px;
+    width: 100%;
+}
+

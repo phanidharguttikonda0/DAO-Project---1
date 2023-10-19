@@ -18,7 +18,7 @@ function BoardMembers(props) {
     return (
         <div className={css.members}>
             {
-                BoardMembers.map(item => <BoardMember address={item} />)
+                BoardMembers.map((item, index) => <BoardMember key={index} address={item} />)
             }
         </div>
     );
