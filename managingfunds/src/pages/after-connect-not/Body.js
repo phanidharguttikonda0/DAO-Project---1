@@ -28,18 +28,14 @@ function Body(props) {
         else alert("The board members can be maximum of only 25") ;
     }
     const valueChange = (event) => {
-        if(Number(event.target.value) < 2) {
-            alert("Minimum Funds Deposit Should be 2 ether") ;
-            changeValue("") ;
-        }else{
             changeValue(event.target.value) ;
-        }
+
     }
 
     const check = () => {
         console.log("Check Called Off", CEOAdress.length) ;
         //* we are going check whether all the fields are correct or not
-        if (CEOAdress.length === 42 && Number(acceptance) >= 40 && Number(boardMembers) >= 5){
+        if (CEOAdress.length === 42 && Number(acceptance) >= 40 && Number(boardMembers) >= 5 && Number(value) >= 2){
             console.log("Condition Satisfied")
             mainObject([CEOAdress,acceptance,boardMembers,String(Number(value)*1000000000000000000)]) ;
             ismembers(true) ;

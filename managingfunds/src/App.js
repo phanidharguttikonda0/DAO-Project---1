@@ -8,7 +8,8 @@ import Main1 from './pages/before-connect/Main';
 import Header from './pages/common-components/header';
 export const addressContext = React.createContext() ;
 export const changeAddressContext = React.createContext() ;
-const contractAddress = "0x5e430157967BcD6f16d52FF57a9170e0e94C10EC" ; // ManagingCompanyFunds Contract Address
+const contractAddress = "0x1a56aCD1A9F618cfCccDAA996364614DCe1c0005" ; // ManagingCompanyFunds Contract Address
+// 0x5e430157967BcD6f16d52FF57a9170e0e94C10EC -> Old Contract Address of (ManagingCompanyFunds)
 export const contractInstance = React.createContext() ;
 export const companyContractContext = React.createContext() ;
 

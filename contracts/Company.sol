@@ -181,6 +181,10 @@ contract Company{
         nextCEO = member ; // once nextCEO is setted then we can't set again only after he became CEO
     }
 
+    function getBalance() external view returns(uint){
+        if(!isCEO(true)) isMember(msg.sender) ;
+        return address(this).balance ;
+    }
 
     function isCEO(bool norevert) private view returns (bool) {
         if(norevert) return msg.sender == CEO ;

@@ -16,9 +16,6 @@ function CEO(props) {
         changeWhy(event.target.value) ;
     }
     const changevalue = (event) => {
-        if(Number(event.target.value) <= 0){
-            alert("Minimum one ether to rise funds")
-        }else
         changeValue(event.target.value) ;
     }
 
@@ -30,8 +27,12 @@ function CEO(props) {
                 await contract.methods.raiseFund(why, value).send({from: address, gas: '5480905',
             gasPrice: '2000000000'}) ;
             }
-            main() ;
-            changeonSubmit(true) ;
+            if(Number(value) >= 1) {
+                main() ;
+                changeonSubmit(true) ;
+            }else{
+                alert("Please Minimum of one ether is required to raise Funds")
+            }
         }
     }
     return (

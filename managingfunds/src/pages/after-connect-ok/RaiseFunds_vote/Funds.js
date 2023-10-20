@@ -1,8 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { addressContext } from '../../../App';
 import { CompanyContract } from '../MainDashBoard';
+import WithDrawDone from '../WithDrawDone';
 import css from './pending.module.css';
 function Funds(props) {
     const contract = useContext(CompanyContract) ;
+    const [withdrawClicked, changeWithdrawClicked] = useState(false) ;
+    const address = useContext(addressContext) ;
+    useEffect(() => {}, [withdrawClicked]) ;
     const Vote = async (value) => {
         try{
             console.log("-----------------------------------") ;
@@ -26,7 +31,25 @@ function Funds(props) {
             <h5> Voted Members {String(props.item.votedMembers)} </h5>
             </div>
             {
-            props.isVote ? <div className={css.submit}>
+                withdrawClicked ? <WithDrawDone contract={contract} index={props.index} address={address} close={changeWithdrawClicked}/> : undefined
+            }
+            {
+            props.isVote ? props.isCEO !== undefined? <div className={css.withdraw}>
+                <button onClick={() => {
+                    //* we will check whether the address is CEO or not
+                    async function main() {
+                        try{
+                            //await contract.methods.withdraw
+                            console.log("CEO Called successfully")
+                            changeWithdrawClicked(true) ;
+                        }catch(err){
+                            alert("may be already with-drawed please refresh the page") ;
+                            console.log(err) ;
+                        }
+                    }
+                    main() ;
+                }} > with-draw </button>
+            </div>: <div className={css.submit}>
             <button onClick={() => {Vote(true)}}> Up-Vote </button>
             <button onClick={() => {Vote(false)}}> Down-Vote </button>
             </div> : undefined
