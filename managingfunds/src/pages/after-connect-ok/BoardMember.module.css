@@ -3,4 +3,6 @@
     padding: 12px;
     width: max-content;
     border: 2px solid black;
+    border-radius: 12px;
+    background-color: rgb(243, 236, 236);
 }

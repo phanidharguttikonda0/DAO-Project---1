@@ -13,7 +13,8 @@ border-color: black;
 border-style: solid;
 border-radius: 12px;
 position: sticky;
-top: 0;
+top: 17%;
+background-color: rgb(236, 233, 233);
 }
 
 .right nav ul li{
@@ -26,6 +27,8 @@ top: 0;
 
 .link{
     text-decoration: none;
+    color: black;
+    font-weight: bold;
 }
 
 .link:hover {

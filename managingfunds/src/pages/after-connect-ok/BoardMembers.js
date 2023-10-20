@@ -17,6 +17,7 @@ function BoardMembers(props) {
     }, [isOK])
     return (
         <div className={css.members}>
+            <h1> Board Members List </h1>
             {
                 BoardMembers.map((item, index) => <BoardMember key={index} address={item} />)
             }

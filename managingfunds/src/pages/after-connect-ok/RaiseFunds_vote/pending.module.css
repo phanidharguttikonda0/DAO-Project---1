@@ -1,5 +1,6 @@
 .pending{
     border: 2px solid black;
+    border-radius: 12px;
     margin: 18px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -8,6 +9,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
 }
 
 .data{

@@ -29,18 +29,18 @@ function History(props) {
     return (
         <div className={css.history}>
             <div className={css.successfull}>
+            <h1> SuccessFull Funds </h1>
                 {
                     render ? successfullFunds.map((item,index) => <div> 
-                        <h1> SuccessFull Funds </h1>
                         <Funds key={index} item={item} isVote={false} 
                     address={address} index={index}/>
                     </div>) : <div> Loading </div>
                 }
             </div>
             <div className={css.failed}>
+            <h1> Failed Funds </h1>
                 {
                     render ? FailedFunds.map((item, index) =>  <div> 
-                        <h1> Failed Funds </h1>
                         <Funds key={index} item={item} isVote={false} 
                     address={address} index={index}/>
                     </div>) : <div> Loading </div>
