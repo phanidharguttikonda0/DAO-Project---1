@@ -136,11 +136,11 @@ contract Company{
 
 
     function withdrawRaisedFund(uint index, address to) external payable {
-        require(index >= sucessfulFunds.length, "not valid") ;
+        require(index < sucessfulFunds.length, "not valid") ;
         require(!sucessfulFunds[index].isused,"already used") ;
         isCEO(false);
-        payable (to).transfer(sucessfulFunds[index].amount) ;
-        sucessfulFunds[index].isused = true ; // funds are successfully transfered 
+        payable(to).transfer(sucessfulFunds[index].amount * 1000000000000000000) ;
+        sucessfulFunds[index].isused = true ; // funds are successfully transfered
         emit FundsTransfered(sucessfulFunds[index].amount, sucessfulFunds[index].timestamp, to);
     }
 

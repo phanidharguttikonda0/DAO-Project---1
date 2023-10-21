@@ -45,6 +45,7 @@ function MainDashBoard(props) {
             <CompanyContract.Provider value={companyContract}>
             <div className={css.main}>
             <div className={css.right}>
+              <h3> CEO :: { CEOAddress } </h3>
             <nav>
               <ul>
                 <li>

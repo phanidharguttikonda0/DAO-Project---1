@@ -35,9 +35,13 @@ function WithDraw(props) {
             </div>
             <div className={css.funds}>
                 {
-                    render ? withdrawFunds.filter(item => !item.isused
+                    render ? withdrawFunds.map((item,index) => {
+                        return {
+                            item: item, index: index
+                        }
+                    }).filter(item => !item.item.isused
                         ).map(
-                        (item,index) => <Funds key={index} index = {index} item={item} isVote={true} isCEO={CEO}
+                        (item) => <Funds key={item.index} index = {item.index} item={item.item} isVote={true} isCEO={CEO}
                         address={address} />
                     ) : <div> Loading </div>
                 }

@@ -9,9 +9,20 @@ function WithDrawDone(props) {
     }
     const submit = () => {
         async function main() {
-            await props.contract.methods.withdrawRaisedFund(props.index, address).send({from: props.address}) ;
-            props.close(false) ;
+            try{
+                await props.contract.methods.withdrawRaisedFund(Number(props.index), address).send({from: props.address,
+                gas: '5480905',
+                gasPrice: '2000000000'
+            }) ;
+                props.close(false) ;
+            }catch(err){
+                alert("Only The CEO can With-draw the funds") ;
+                props.close(false) ;
+                console.log(err) ;
+                console.log(props.index)
+            }
         }
+        console.log(`The address was ${props.address}`)
         main() ;
     }
     return ReactDOM.createPortal((
